@@ -65,5 +65,28 @@ namespace CA2_OOP
             t3.Players.Add(p8);
             t3.Players.Add(p9);
         }
+
+        void DisplayPlayers(Team team)
+        {
+            lbxPlayers.Items.Clear(); //Clear the listbox so that it doesn't show the previous selections aswell
+            List<Player> players = team.Players;
+            foreach (Player player in players)
+            {
+                lbxPlayers.Items.Add(player.Name + " - " + player.ResultRecord);
+            }
+        }
+
+        private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Get the selected team
+            string selectedTeam = lbxTeams.SelectedItem as string;
+
+            if (selectedTeam == t1.Name)
+                DisplayPlayers(t1);
+            if (selectedTeam == t2.Name)
+                DisplayPlayers(t2);
+            if (selectedTeam == t3.Name)
+                DisplayPlayers(t3);
+        }
     }
 }

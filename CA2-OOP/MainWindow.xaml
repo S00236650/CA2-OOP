@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Tiddlywinks World Cup" VerticalAlignment="Top" FontSize="48"/>
-        <ListBox x:Name="lbxTeams" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,153,487,30"/>
+        <ListBox x:Name="lbxTeams" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,153,487,30" SelectionChanged="lbxTeams_SelectionChanged"/>
         <ListBox x:Name="lbxPlayers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="363,153,174,30"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,122,0,0" TextWrapping="Wrap" Text="Teams" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="363,122,0,0" TextWrapping="Wrap" Text="Players" VerticalAlignment="Top"/>
