@@ -20,9 +20,50 @@ namespace CA2_OOP
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Creating teams
+        Team t1 = new Team() { Name = "France" };
+        Team t2 = new Team() { Name = "Italy" };
+        Team t3 = new Team() { Name = "Spain" };
+
+        //French players
+        Player p1 = new Player() { Name = "Marie", ResultRecord = "WWDDL" };
+        Player p2 = new Player() { Name = "Claude", ResultRecord = "DDDLW" };
+        Player p3 = new Player() { Name = "Antoine", ResultRecord = "LWDLW" };
+
+        //Italian players
+        Player p4 = new Player() { Name = "Marco", ResultRecord = "WWDLL" };
+        Player p5 = new Player() { Name = "Giovanni", ResultRecord = "LLLLD" };
+        Player p6 = new Player() { Name = "Valentina", ResultRecord = "DLWWW" };
+
+        //Spanish players
+        Player p7 = new Player() { Name = "Maria", ResultRecord = "WWWWW" };
+        Player p8 = new Player() { Name = "Jose", ResultRecord = "LLLLL" };
+        Player p9 = new Player() { Name = "Pablo", ResultRecord = "DDDDD" };
+
         public MainWindow()
         {
             InitializeComponent();
+            //Adding data on startup
+            GetData();
+        }
+
+        void GetData()
+        {
+            //Displaying teams in lbxTeams
+            lbxTeams.Items.Add(t1.Name);
+            lbxTeams.Items.Add(t2.Name);
+            lbxTeams.Items.Add(t3.Name);
+
+            //Adding plyers to teams with starting values
+            t1.Players.Add(p1);
+            t1.Players.Add(p2);
+            t1.Players.Add(p3);
+            t2.Players.Add(p4);
+            t2.Players.Add(p5);
+            t2.Players.Add(p6);
+            t3.Players.Add(p7);
+            t3.Players.Add(p8);
+            t3.Players.Add(p9);
         }
     }
 }
