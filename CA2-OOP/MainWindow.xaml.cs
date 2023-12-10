@@ -21,24 +21,24 @@ namespace CA2_OOP
     public partial class MainWindow : Window
     {
         //Creating teams
-        Team t1 = new Team() { Name = "France" };
-        Team t2 = new Team() { Name = "Italy" };
-        Team t3 = new Team() { Name = "Spain" };
+        Team t1 = new Team("France");
+        Team t2 = new Team("Italy");
+        Team t3 = new Team("Spain");
 
         //French players
-        Player p1 = new Player() { Name = "Marie", ResultRecord = "WWDDL", Points = 0 };
-        Player p2 = new Player() { Name = "Claude", ResultRecord = "DDDLW", Points = 0 };
-        Player p3 = new Player() { Name = "Antoine", ResultRecord = "LWDLW", Points = 0 };
+        Player p1 = new Player("Marie", "WWDDL");
+        Player p2 = new Player("Claude", "DDDLW");
+        Player p3 = new Player("Antoine", "LWDLW");
 
         //Italian players
-        Player p4 = new Player() { Name = "Marco", ResultRecord = "WWDLL", Points = 0 };
-        Player p5 = new Player() { Name = "Giovanni", ResultRecord = "LLLLD", Points = 0 };
-        Player p6 = new Player() { Name = "Valentina", ResultRecord = "DLWWW", Points = 0 };
+        Player p4 = new Player("Marco", "WWDLL");
+        Player p5 = new Player("Giovanni", "LLLLD");
+        Player p6 = new Player("Valentina", "DLWWW");
 
         //Spanish players
-        Player p7 = new Player() { Name = "Maria", ResultRecord = "WWWWW", Points = 0 };
-        Player p8 = new Player() { Name = "Jose", ResultRecord = "LLLLL", Points = 0 };
-        Player p9 = new Player() { Name = "Pablo", ResultRecord = "DDDDD", Points = 0 };
+        Player p7 = new Player("Maria", "WWWWW");
+        Player p8 = new Player("Jose", "LLLLL");
+        Player p9 = new Player("Pablo", "DDDDD");
 
         public MainWindow()
         {
@@ -72,6 +72,9 @@ namespace CA2_OOP
 
         void Calculate(Team team)
         {
+            //Reset team points every time the method is called
+            team.Points = 0;
+
             foreach (Player player in team.Players)
             {
                 //Reset points every time the method is called
@@ -83,12 +86,16 @@ namespace CA2_OOP
                     if (c == 'D')
                         player.Points += 1;
                 }
+                //Keep out of foreach loop so that it does not add one player multiple times
+                //Keep inside this foreach loop so that it adds once per player
+                team.Points += player.Points;
             }
         }
 
         void DisplayPlayers(Team team)
         {
             lbxPlayers.Items.Clear(); //Clear the listbox so that it doesn't show the previous selections aswell
+            lbxPlayers.Items.Add("Team total points: " + team.Points.ToString());
             List<Player> players = team.Players;
             foreach (Player player in players)
             {

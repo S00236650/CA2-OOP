@@ -11,8 +11,14 @@ namespace CA2_OOP
         //Variables
         public string Name { get; set; }
         public List<Player> Players = new List<Player>();
+        public int Points { get; set; }
 
         //Constructors
         public Team() { }
+
+        public Team(string name)
+        {
+            Name = name;
+        }
     }
 }

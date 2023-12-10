@@ -15,5 +15,12 @@ namespace CA2_OOP
 
         //Constructors
         public Player() { }
+
+        public Player(string name, string record)
+        {
+            Name = name;
+            ResultRecord = record;
+            //Points not needed as it will be calculated in the Calculate() method
+        }
     }
 }
