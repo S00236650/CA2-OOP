@@ -113,6 +113,30 @@ namespace CA2_OOP
             }
         }
 
+        BitmapImage GetImageSource(bool filled)
+        {
+            //Set the path for the star images
+            string starOutline = "/staroutline.png";
+            string starSolid = "/starsolid.png";
+
+            // Create a new BitmapImage for the empty star
+            BitmapImage emptyStar = new BitmapImage();
+            emptyStar.BeginInit();
+            emptyStar.UriSource = new Uri(starOutline, UriKind.RelativeOrAbsolute);
+            emptyStar.EndInit();
+
+            // Create a new BitmapImage for the filled star
+            BitmapImage fillStar = new BitmapImage();
+            fillStar.BeginInit();
+            fillStar.UriSource = new Uri(starSolid, UriKind.RelativeOrAbsolute);
+            fillStar.EndInit();
+
+            if(filled)
+                return fillStar;
+            else
+                return emptyStar;
+        }
+
         private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Get the selected team
@@ -241,6 +265,62 @@ namespace CA2_OOP
             }
 
             SortTeams();
+        }
+
+        private void lbxPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Get the selected player
+            Player selectedPlayer = new Player();
+            if (lbxPlayers.SelectedItem != null)
+            {
+                if (lbxPlayers.SelectedItem.ToString().Contains(p1.Name))
+                    selectedPlayer = p1;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p2.Name))
+                    selectedPlayer = p2;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p3.Name))
+                    selectedPlayer = p3;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p4.Name))
+                    selectedPlayer = p4;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p5.Name))
+                    selectedPlayer = p5;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p6.Name))
+                    selectedPlayer = p6;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p7.Name))
+                    selectedPlayer = p7;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p8.Name))
+                    selectedPlayer = p8;
+                if (lbxPlayers.SelectedItem.ToString().Contains(p9.Name))
+                    selectedPlayer = p9;
+            }
+
+            // Check if the selectedPlayer is not null
+            if (selectedPlayer != null)
+            {
+            if (selectedPlayer.Points == 0)
+                {
+                    imgStar1.Source = GetImageSource(false);
+                    imgStar2.Source = GetImageSource(false);
+                    imgStar3.Source = GetImageSource(false);
+                }
+                else if (selectedPlayer.Points > 0 && selectedPlayer.Points <= 5)
+                {
+                    imgStar1.Source = GetImageSource(true);
+                    imgStar2.Source = GetImageSource(false);
+                    imgStar3.Source = GetImageSource(false);
+                }
+                else if (selectedPlayer.Points > 5 && selectedPlayer.Points <= 10)
+                {
+                    imgStar1.Source = GetImageSource(true);
+                    imgStar2.Source = GetImageSource(true);
+                    imgStar3.Source = GetImageSource(false);
+                }
+                else if (selectedPlayer.Points > 10 && selectedPlayer.Points <= 15)
+                {
+                    imgStar1.Source = GetImageSource(true);
+                    imgStar2.Source = GetImageSource(true);
+                    imgStar3.Source = GetImageSource(true);
+                }
+            }
         }
     }
 }
