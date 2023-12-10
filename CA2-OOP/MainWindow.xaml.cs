@@ -53,11 +53,6 @@ namespace CA2_OOP
 
         void GetData()
         {
-            //Displaying teams in lbxTeams
-            lbxTeams.Items.Add(t1.Name);
-            lbxTeams.Items.Add(t2.Name);
-            lbxTeams.Items.Add(t3.Name);
-
             //Adding plyers to teams with starting values
             t1.Players.Add(p1);
             t1.Players.Add(p2);
@@ -90,6 +85,21 @@ namespace CA2_OOP
                 //Keep inside this foreach loop so that it adds once per player
                 team.Points += player.Points;
             }
+
+            SortTeams();
+        }
+
+        void SortTeams()
+        {
+            //Creating a list so that it can be sorted by points
+            List<Team> teams = new List<Team> { t1, t2, t3 };
+            teams.Sort();
+
+            //Displaying teams in lbxTeams
+            lbxTeams.Items.Clear();
+            lbxTeams.Items.Add(teams[2].Name);
+            lbxTeams.Items.Add(teams[1].Name);
+            lbxTeams.Items.Add(teams[0].Name);
         }
 
         void DisplayPlayers(Team team)
@@ -151,6 +161,8 @@ namespace CA2_OOP
                     DisplayPlayers(t3);
                 }
             }
+
+            SortTeams();
         }
 
         private void btnDraw_Click(object sender, RoutedEventArgs e)
@@ -188,6 +200,8 @@ namespace CA2_OOP
                     DisplayPlayers(t3);
                 }
             }
+
+            SortTeams();
         }
 
         private void btnLoss_Click(object sender, RoutedEventArgs e)
@@ -225,6 +239,8 @@ namespace CA2_OOP
                     DisplayPlayers(t3);
                 }
             }
+
+            SortTeams();
         }
     }
 }
