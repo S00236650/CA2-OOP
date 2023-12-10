@@ -11,6 +11,7 @@ namespace CA2_OOP
         //Variables
         public string Name { get; set; }
         public string ResultRecord { get; set; }
+        public int Points { get; set; }
 
         //Constructors
         public Player() { }

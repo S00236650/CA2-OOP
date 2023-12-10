@@ -17,9 +17,9 @@
         <Image x:Name="imgStar2" Margin="689,153,79,249" Source="/staroutline.png" Stretch="Fill"/>
         <Image x:Name="imgStar3" Margin="726,153,42,249" Source="/staroutline.png" Stretch="Fill"/>
         <TextBlock HorizontalAlignment="Left" Margin="668,263,0,0" TextWrapping="Wrap" Text="Record Result" VerticalAlignment="Top"/>
-        <Button x:Name="btnWin" Content="Win" HorizontalAlignment="Left" Margin="670,307,0,0" VerticalAlignment="Top" Width="72"/>
-        <Button x:Name="btnDraw" Content="Draw" HorizontalAlignment="Left" Margin="670,332,0,0" VerticalAlignment="Top" Width="72"/>
-        <Button x:Name="btnLoss" Content="Loss" HorizontalAlignment="Left" Margin="670,357,0,0" VerticalAlignment="Top" Width="72"/>
+        <Button x:Name="btnWin" Content="Win" HorizontalAlignment="Left" Margin="670,307,0,0" VerticalAlignment="Top" Width="72" Click="btnWin_Click"/>
+        <Button x:Name="btnDraw" Content="Draw" HorizontalAlignment="Left" Margin="670,332,0,0" VerticalAlignment="Top" Width="72" Click="btnDraw_Click"/>
+        <Button x:Name="btnLoss" Content="Loss" HorizontalAlignment="Left" Margin="670,357,0,0" VerticalAlignment="Top" Width="72" Click="btnLoss_Click"/>
 
     </Grid>
 </Window>
